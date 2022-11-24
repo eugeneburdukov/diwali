@@ -17,7 +17,6 @@
         <slf4j.version>2.0.4</slf4j.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <suiteXml>testng.xml</suiteXml>
     </properties>
 
     <dependencies>
@@ -70,9 +69,6 @@
                             <value>target/allure-results</value>
                         </property>
                     </systemProperties>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/${suiteXml}</suiteXmlFile>
-                    </suiteXmlFiles>
                 </configuration>
                 <dependencies>
                     <dependency>
