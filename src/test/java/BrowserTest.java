@@ -9,12 +9,14 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.ByteArrayInputStream;
+import org.apache.commons.io.FileUtils;
 import java.io.File;
+import java.io.IOException;
 
 public class BrowserTest {
 
     @Test
-    public void OpenBrowser() {
+    public void OpenBrowser() throws IOException {
         WebDriver driver;
         System.setProperty("webdriver.chrome.driver", "/usr/bin/chromedriver");
         ChromeOptions options = new ChromeOptions();
@@ -24,8 +26,8 @@ public class BrowserTest {
         driver.get("https://www.google.com");
         Assert.assertEquals("Google", driver.getTitle());
 
-        Allure.addAttachment("Any text", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
-
+        File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+        FileUtils.copyFile(scrFile, new File("1.jpg"));
         driver.close();
     }
 }
