@@ -23,7 +23,5 @@ public class BrowserTest {
         driver.get("https://www.google.com");
         System.out.println("Title of the page is: " + driver.getTitle());
         Assert.assertEquals("Google", driver.getTitle());
-
-        Allure.addAttachment("Any text", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
     }
 }
