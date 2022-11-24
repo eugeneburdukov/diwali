@@ -21,7 +21,6 @@ public class BrowserTest {
         options.addArguments("disable-gpu");
         driver = new ChromeDriver(options);
         driver.get("https://www.google.com");
-        System.out.println("Title of the page is: " + driver.getTitle());
         Assert.assertEquals("Google", driver.getTitle());
     }
 }
