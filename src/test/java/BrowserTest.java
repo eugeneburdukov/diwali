@@ -22,5 +22,9 @@ public class BrowserTest {
         driver = new ChromeDriver(options);
         driver.get("https://www.google.com");
         Assert.assertEquals("Google", driver.getTitle());
+
+        Allure.addAttachment("Any text", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+
+        driver.close();
     }
 }
